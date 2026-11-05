@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Render free tier: no local files may hold state. `better-sqlite3` is removed and everything goes through `DATABASE_URL` (Neon, `ssl: { rejectUnauthorized: false }` is fine).
-- One org: `GITHUB_ORG=lgu-and-health-project`. `repo_alerts.repo` is the repo name without the org (`repository.name`).
+- One org: `GITHUB_ORG=Infinite-Motion-Xpress-Inc`. `repo_alerts.repo` is the repo name without the org (`repository.name`).
 - Usage defaults: `brevoWarnBelowCredits` 60, `awsWarnCreditsBelowUsd` 10, `checkEveryHours` 6. Don't poll Cost Explorer more often (~$0.01 per request).
 - Usage alerts post once when they become true. The Brevo warning posts at most once per UTC day.
 - A failed usage check is never shown as "fine". It shows as an error in `/status` and posts no alert.

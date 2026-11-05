@@ -20,7 +20,7 @@ function fakeDiscord() {
 }
 
 const body = (extra) => ({
-  repository: { name: "api", full_name: "lgu-and-health-project/api" },
+  repository: { name: "api", full_name: "Infinite-Motion-Xpress-Inc/api" },
   issue: { number: 7, title: "Bug", body: "x", html_url: "u", user: { login: "octo" } },
   ...extra,
 });
