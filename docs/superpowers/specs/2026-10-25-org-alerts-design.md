@@ -9,8 +9,8 @@ We reuse this existing bot (an unfinished Discord ↔ GitHub issue-sync bot) ins
 ## Goals (phase 1)
 
 1. **Failed runs.** A GitHub Actions workflow run that fails posts an alert to the channel mapped to its repo.
-2. **New version live, mobile.** HRIS is one Expo repo, `lgu-and-health-project/HRISApplication`, with OTA updates (there are no separate Android and iOS repos). A successful run of any workflow named in that repo's `success_workflows` (its Android, iOS and OTA release workflows) posts a "released" message.
-3. **New version live, servers.** A GitHub Release on `lgu-and-health-project/LGUProject-admin` posts an announcement that follows tenant-api's own channel rules (`fetchReleaseHistory`, `apps/tenant-api/src/trpc/routers/settings.router.ts:272-276`):
+2. **New version live, mobile.** HRIS is one Expo repo, `Infinite-Motion-Xpress-Inc/HRISApplication`, with OTA updates (there are no separate Android and iOS repos). A successful run of any workflow named in that repo's `success_workflows` (its Android, iOS and OTA release workflows) posts a "released" message.
+3. **New version live, servers.** A GitHub Release on `Infinite-Motion-Xpress-Inc/LGUProject-admin` posts an announcement that follows tenant-api's own channel rules (`fetchReleaseHistory`, `apps/tenant-api/src/trpc/routers/settings.router.ts:272-276`):
    - A **pre-release, or a tag containing `-beta`**, is a **beta-channel** announcement only ("available to beta boxes"). Production boxes never see these, so the message must not suggest that production orgs can update.
    - A **stable release** is labeled **automatic** if it "moves patch" (`movesPatch`: production boxes pull it through Watchtower's `:patch` tag) or **manual** if not (a feature release someone installs by hand). The builder copies the `movesPatch` rule exactly from `settings.router.ts` in the LGUProject-admin repo (cloned on this machine under `C:\dev`) and adds a comment pointing to the source, since the two have to stay in step.
 4. **External service usage.**
@@ -40,7 +40,7 @@ We reuse this existing bot (an unfinished Discord ↔ GitHub issue-sync bot) ins
 
 - **Hosting: Render free tier.** The user keeps it awake with their own keep-alive pings (`GET /` already exists). The disk is ephemeral, so nothing may rely on local files.
 - **Database: Neon Postgres** (user's decision), using `DATABASE_URL`. **All** storage moves there, including the existing `threads` and `users` tables, and `better-sqlite3` is removed. The user chose this so there is no second migration later.
-- **One org.** Every repo that sends alerts (LGUProject-admin, HRISApplication, and others such as OneHealth) is in `lgu-and-health-project`, so the one org webhook and repo names without the org are enough (`GITHUB_ORG=lgu-and-health-project`).
+- **One org.** Every repo that sends alerts (LGUProject-admin, HRISApplication, and others such as OneHealth) is in `Infinite-Motion-Xpress-Inc`, so the one org webhook and repo names without the org are enough (`GITHUB_ORG=Infinite-Motion-Xpress-Inc`).
 - Stack stays as it is: Node, CommonJS, discord.js 14, Express, Octokit. One file per slash command in `commands/`.
 
 ## How it works

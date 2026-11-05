@@ -12,7 +12,7 @@ services:
       - { key: DISCORD_CLIENT_ID, sync: false }
       - { key: DISCORD_ISSUE_CHANNEL_ID, sync: false }
       - { key: GITHUB_TOKEN, sync: false }
-      - { key: GITHUB_ORG, value: lgu-and-health-project }
+      - { key: GITHUB_ORG, value: Infinite-Motion-Xpress-Inc }
       - { key: GITHUB_WEBHOOK_SECRET, sync: false }
       - { key: GITHUB_BOT_USERNAME, sync: false }
       - { key: DATABASE_URL, sync: false }
